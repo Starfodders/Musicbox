@@ -1,8 +1,10 @@
+import "./App.scss"
+import HomePage from "./components/HomePage/HomePage"
 
 function App() {
   return (
     <>
-    <h1>neat</h1>
+    <HomePage/>
     </>
   );
 }
