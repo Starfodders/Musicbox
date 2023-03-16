@@ -21,5 +21,13 @@
         width: 100%;
         display: flex;
         justify-content: center;
+
+        &__right {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
     }
+
+
 }

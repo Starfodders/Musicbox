@@ -1,9 +1,7 @@
 import "./Chords.scss"
-// import {useState} from "react"
 
 const Chords = ({current, changeChord}) => {
 
-    // const [currentChord, setCurrentChord] = useState('Major')
 
     function handleChange(e) {
         changeChord(e.target.value)
