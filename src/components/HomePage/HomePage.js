@@ -7,7 +7,7 @@ import { useState } from "react";
 import "./HomePage.scss";
 
 const HomePage = () => {
-  const [currentNote, setCurrentNote] = useState();
+  const [currentNote, setCurrentNote] = useState('A');
   const [currentChord, setCurrentChord] = useState("Major");
 
   function handleNoteChange(note) {

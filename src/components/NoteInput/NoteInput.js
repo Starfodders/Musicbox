@@ -1,4 +1,4 @@
-import React from 'react';
+import "./NoteInput.scss"
 import {useState, useEffect} from "react";
 
 const NoteInput = ({current, chord}) => {
@@ -10,9 +10,9 @@ const NoteInput = ({current, chord}) => {
     },[current])
 
     return (
-        <form>
-            <input value = {receivedNote}/>
-            <button>Add Note</button>
+        <form className = "note-form">
+            <input className = "note-form__input" value = {`${receivedNote} ${chord}`}/>
+            <butto className = "note-form__button">Add Note</butto>
         </form>
     );
 };
