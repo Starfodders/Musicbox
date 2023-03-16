@@ -1,8 +1,10 @@
-import './App.css';
+import "./App.scss"
+import HomePage from "./components/HomePage/HomePage"
 
 function App() {
   return (
     <>
+    <HomePage/>
     </>
   );
 }
