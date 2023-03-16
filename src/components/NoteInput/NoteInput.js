@@ -1,7 +1,8 @@
 import React from 'react';
 import {useState, useEffect} from "react";
 
-const NoteInput = ({current}) => {
+const NoteInput = ({current, chord}) => {
+
     const [receivedNote, setReceivedNote] = useState(current)
 
     useEffect(() => {
@@ -18,4 +19,4 @@ const NoteInput = ({current}) => {
 
 export default NoteInput;
 
-//is not currently additive, a new note will overrite the previous one
+//on form submission, add the value and the chord together to form the note

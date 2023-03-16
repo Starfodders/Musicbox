@@ -15,4 +15,11 @@
             opacity: 0.9;
         }
     }
+
+    &__player {
+        padding-top: 16rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
 }

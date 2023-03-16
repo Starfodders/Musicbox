@@ -22,8 +22,8 @@ const HomePage = () => {
   return (
     <div className="home">
         <div className = "home__player">
-            {<Chords changeChord = {handleChord}/>}
-            {<NoteInput current = {currentNote}/>}
+            {<Chords current = {currentChord} changeChord = {handleChord}/>}
+            {<NoteInput current = {currentNote} chord = {currentChord}/>}
             {<Keys changeNote = {handleNoteChange}/>}
         </div>
     </div>
