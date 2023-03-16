@@ -15,4 +15,19 @@
             opacity: 0.9;
         }
     }
+
+    &__player {
+        padding-top: 5rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        &__right {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+
+
 }

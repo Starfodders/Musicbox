@@ -1,0 +1,33 @@
+.chords {
+  display: flex;
+  flex-direction: column;
+  margin-right: 3rem;
+
+  &__button {
+    padding: 1rem 2rem;
+    margin-bottom: 1rem;
+    border: none;
+    background: rgb(108, 145, 191);
+    background: linear-gradient(
+      32deg,
+      rgba(108, 145, 191, 1) 0%,
+      rgba(91, 200, 175, 1) 100%
+    );
+    border-bottom: 5px solid #220808;
+    color: white;
+    border-radius: 4px;
+    font-size: 1.5rem;
+
+    &--active {
+      @extend .chords__button;
+      background: rgb(96, 32, 128);
+      background: linear-gradient(
+        32deg,
+        rgba(96, 32, 128, 1) 0%,
+        rgba(32, 32, 96, 1) 100%
+      );
+      border-bottom: 10px solid #220808;
+      transition: 0.2s border-bottom;
+    }
+  }
+}
