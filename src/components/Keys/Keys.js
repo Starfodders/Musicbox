@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Keys = ({change}) => {
+const Keys = ({changeNote}) => {
 
     //receives state handler from parent, sets the value to what is pressed
     function handleChange(e) {
         // console.log(e.target.value)
-        change(e.target.value)
+        changeNote(e.target.value)
     }
     return (
         <div className = "keys">
