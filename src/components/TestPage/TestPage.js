@@ -1,34 +1,92 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as Tone from 'tone';
 
 const SequencerExample = () => {
-  useEffect(() => {
-    // Create a new synth with a sawtooth waveform
-    const synth = new Tone.Synth({
-      oscillator: {
-        type: 'sawtooth',
-      },
+    const [isRunning, setIsRunning] = useState(false);
+    
+    const amaj7 = ['A3', 'E4', 'C#5', 'G#5']
+    const bmin7 = ['B3', 'F#4', 'A5', 'D5']
+    const E7 = ['E3', 'B3', 'D4', 'G#5']
+    
+    const [bassNote, setBassNote] = useState(['A2'])
+    const [chord, setChord] = useState(amaj7);
+
+    const changeChordE7 = () => {
+        setChord(E7)
+        setBassNote(['E2'])
+    }
+    const changeChordA7 = () => {
+        setChord(amaj7);
+        setBassNote(['A2']);
+    }
+    const changeChordb7 = () => {
+        setChord(bmin7);
+        setBassNote(['B2'])
+    }
+
+    useEffect(() => {
+        // Create a new synth with a sawtooth waveform
+        const synth = new Tone.PolySynth({
+        oscillator: {
+            type: 'triangle',
+        },
     }).toDestination();
 
-    // Create a new sequence that plays C, E, G, B in eighth notes
+    const bassSynth = new Tone.PolySynth({
+        oscilator: {
+            type: 'sine'
+        },
+    }).toDestination();
+
+    // const bassSequence = new Tone.Sequence((time, note) => {
+    //     bassSynth.triggerAttackRelease(note, '4n', time);
+    // }, bassNote).start(0);
+
+    const newSequence = new Tone.Sequence((time, note) => {
+        bassSynth.triggerAttackRelease(note, '4n', time);
+    }, bassNote).start(0)
+
+    // Create a new sequence of notes
     const sequence = new Tone.Sequence((time, note) => {
-      // Calculate the frequency of the note and play it with the synth
-      const frequency = Tone.Frequency(note);
-      synth.triggerAttackRelease(frequency, '8n', time);
-    }, ['C2', 'E2', 'G2', 'B2'], '8n');
+        console.log(time);
+        synth.triggerAttackRelease(note, '8n', time);
+    }, chord).start(0);
 
-    // Start the sequence and transport
-    Tone.Transport.start();
-    sequence.start(0);
+    // Set the loop points
+    Tone.Transport.loopStart = 0;
+    Tone.Transport.loopEnd = '1m';
+    Tone.Transport.loop = true;
 
-    // Stop the sequence and transport when the component unmounts
     return () => {
-      sequence.stop();
-      Tone.Transport.stop();
+      sequence.dispose();
     };
-  }, []);
+  }, [chord, bassNote]);
 
-  return <div>Sequencer Example</div>;
+  const handleToggleSequencer = () => {
+    if (isRunning) {
+      Tone.Transport.stop();
+      setIsRunning(false);
+    } else {
+      // Start the audio context on user interaction
+      Tone.start().then(() => {
+        Tone.Transport.start();
+        setIsRunning(true);
+      });
+    }
+  };
+
+  const buttonLabel = isRunning ? 'Stop Sequencer' : 'Start Sequencer';
+
+  return (
+    <div>
+      <button onClick={handleToggleSequencer}>{buttonLabel}</button>
+      <button onClick={changeChordA7}>amaj7</button>
+      <button onClick={changeChordb7}>bmin7</button>
+      <button onClick={changeChordE7}>E7</button>
+    </div>
+  );
 };
 
 export default SequencerExample;
+
+
