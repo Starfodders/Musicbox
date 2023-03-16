@@ -3,15 +3,32 @@
     position: fixed;
     background-color: black;
     width: 100%;
-    min-height: 5rem;
 
     &__container {
         width: 100%;
         display: flex;
+        justify-content: space-between;
+    }
+
+    &__block {
+        width: 30%;
+        display: flex;
         justify-content: center;
+        align-items: center;
     }
 
     &__logo {
-        width: 7%;
+        width: 20%;
+    }
+
+    &__link {
+        color: white;
+        padding: 2rem 0;
+
+        &--active {
+            @extend .header__link;
+            border-bottom: solid 3px white;
+        }
     }
 }
+
