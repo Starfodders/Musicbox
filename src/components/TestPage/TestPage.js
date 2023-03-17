@@ -247,7 +247,7 @@ const SequencerExample = () => {
     </div>
     <div>
         <h4>arpeggio parameters</h4>
-        {/*make inputs components probably*/}
+        {/*make inputs components probably, test change*/}
         <input 
           type="range" 
           min="0" 
