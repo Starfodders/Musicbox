@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 const Tracker = ({ note }) => {
   const [isEnter, setIsEnter] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [noteArray, setNoteArray] = useState([]);
 
   const [songName, setSongName] = useState("");
@@ -16,8 +17,14 @@ const Tracker = ({ note }) => {
         songName,
         yourName
     })
+    .then(() => {
+        setIsSubmitted(true)
+    })
     setSongName('')
     setYourName('')
+    setTimeout(() => {
+        setIsSubmitted(false)
+    }, 2000)
   }
 
   useEffect(() => {
@@ -65,6 +72,9 @@ const Tracker = ({ note }) => {
           <input className="tracker__form--input" name="your-name" onChange={(e) => setYourName(e.target.value)} value = {yourName}></input>
           <button className="tracker__save">Save Song</button>
         </form>
+        {isSubmitted ? <div className = "tracker__success">
+            <p>Song Saved Successfully!</p>
+        </div> : '' }
       </div>
     </div>
   );
