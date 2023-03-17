@@ -1,5 +1,5 @@
 import "./Keys.scss"
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 
 const Keys = ({changeNote}) => {
     //assign useRef to each key
@@ -12,13 +12,11 @@ const Keys = ({changeNote}) => {
         F: useRef(),
         G: useRef(),
     }
-    const [currentKey, setCurrentKey] = useState('A');
 
     //receives state handler from parent, sets the value to what is pressed
     function handleChange(e) {
         changeNote(e.target.value)
     }
-
 
     //if keypress occurs and it matches a CURRENT useRef (false if doesn't exist), will fire click()
     useEffect(() => {

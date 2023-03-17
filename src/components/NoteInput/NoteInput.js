@@ -20,7 +20,7 @@ const NoteInput = ({current, chord, getNote}) => {
     useEffect(() => {
         function handleKeyPress(e) {
             if (e.key === "Enter") {
-                event.preventDefault();
+                e.preventDefault();
                 handleSubmit(e);
             }
         }
