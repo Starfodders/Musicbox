@@ -241,12 +241,6 @@ const SequencerExample = () => {
             )
         }))}
     </div>
-    <div className="test">
-        <button className="chords__button" onClick={handleToggleSequencer}>{startStopButton}</button>
-        <button onClick={() => {changeSounds(chords[22], bassPatterns[2])}}>{notes[2]+chordQuality[2]}</button>
-        <button onClick={() => {changeSounds(chords[44], bassPatterns[4])}}>{notes[4]+chordQuality[4]}</button>
-        <button onClick={() => {changeSounds(chords[92], bassPatterns[9])}}>{notes[9]+chordQuality[2]}</button>
-    </div>
     <div>
         <h4>arpeggio parameters</h4>
         {/*make inputs components probably*/}
