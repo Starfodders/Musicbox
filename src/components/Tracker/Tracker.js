@@ -13,18 +13,22 @@ const Tracker = ({ note }) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    axios.post('http://localhost:8080/saved', {
-        songName,
-        yourName
-    })
-    .then(() => {
-        setIsSubmitted(true)
-    })
-    setSongName('')
-    setYourName('')
-    setTimeout(() => {
-        setIsSubmitted(false)
-    }, 2000)
+    if (!songName.length > 0 || !yourName.length > 0) {
+        return
+    } else {
+        axios.post('http://localhost:8080/saved', {
+            songName,
+            yourName
+        })
+        .then(() => {
+            setIsSubmitted(true)
+        })
+        setSongName('')
+        setYourName('')
+        setTimeout(() => {
+            setIsSubmitted(false)
+        }, 2000)
+    }
   }
 
   useEffect(() => {
