@@ -2,8 +2,8 @@ import './Button.scss';
 
 const Button = (props) => {
     return (
-        <div className='button' onClick={() => {props.addChordClickHandler(props.note)}} key={props.id}>
-            {props.displayNote}
+        <div className='button' onClick={() => {props.clickHandler(props.input)}} key={props.id}>
+            {props.display}
         </div>
     )
 }
