@@ -17,17 +17,32 @@
     }
 
     &__player {
-        padding-top: 5rem;
-        width: 100%;
+        padding-top: 2rem;
+        width: 50%;
         display: flex;
-        justify-content: center;
 
         &__right {
+            width: 70%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
     }
 
+
+}
+
+.cat-speech {
+    position: absolute;
+    right: 5rem;
+    bottom: 10rem;
+    z-index: 5;
+}
+.cat-vibe{
+    position: absolute;
+    width: 30%;
+    right: 0;
+    bottom: 2rem;
+    transform: scaleX(-1);
 
 }
