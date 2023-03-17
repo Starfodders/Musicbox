@@ -1,4 +1,5 @@
 import "./Tracker.scss";
+import axios from "axios"
 
 import { useState, useEffect } from "react";
 
@@ -8,6 +9,16 @@ const Tracker = ({ note }) => {
 
   const [songName, setSongName] = useState("");
   const [yourName, setYourName] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    axios.post('http://localhost:8080/saved', {
+        songName,
+        yourName
+    })
+    setSongName('')
+    setYourName('')
+  }
 
   useEffect(() => {
     //handles initial value which is undefined
@@ -31,6 +42,7 @@ const Tracker = ({ note }) => {
     };
   }, [isEnter]);
 
+
   return (
     <div className="tracker">
       <div className="tracker__container">
@@ -42,7 +54,7 @@ const Tracker = ({ note }) => {
       </div>
       <div className="tracker__CTA">
         <button className="tracker__play">Play</button>
-        <form className="tracker__form">
+        <form className="tracker__form" onSubmit = {handleSubmit}>
           <label className="tracker__form--label" htmlFor="song-name">
             Song Name
           </label>
