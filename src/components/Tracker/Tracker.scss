@@ -7,10 +7,13 @@
         background-color: rgba(0,0,0,0.6);
         min-height: 280px;
         padding: 3rem;
+        display: flex;
+        flex-wrap: wrap;
     }
 
     &__note {
         color: white;
         font-size: 2rem;
+        margin: 1rem;
     }
 }

@@ -42,4 +42,3 @@ const NoteInput = ({current, chord, getNote}) => {
 
 export default NoteInput;
 
-//on form submission, add the value and the chord together to form the note

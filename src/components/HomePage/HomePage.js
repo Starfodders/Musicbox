@@ -3,14 +3,15 @@ import Keys from "../Keys/Keys";
 import NoteInput from "../NoteInput/NoteInput";
 import Chords from "../Chords/Chords";
 import Tracker from "../Tracker/Tracker";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "./HomePage.scss";
+import cat from "../../assets/images/catVibe.gif"
 
 const HomePage = () => {
   const [currentNote, setCurrentNote] = useState('A');
   const [currentChord, setCurrentChord] = useState("Major");
-  const [fullNote, setFullNote] = useState(null)
+  const [fullNote, setFullNote] = useState()
 
   function handleNoteChange(note) {
     setCurrentNote(note);
@@ -28,7 +29,7 @@ const HomePage = () => {
   return (
     <div className="home">
         <div className = "home__tracker">
-            {<Tracker note = {fullNote}/>}
+            {<Tracker note = {fullNote} />}
         </div>
       <div className="home__player">
         {<Chords current={currentChord} changeChord={handleChord} />}
@@ -37,6 +38,8 @@ const HomePage = () => {
           {<Keys changeNote={handleNoteChange} />}
         </div>
       </div>
+      <h1 className = "cat-speech">Oh shit what a banger</h1>
+      <img src = {cat} className = "cat-vibe" alt = "cat-vibing"/>
     </div>
   );
 };
