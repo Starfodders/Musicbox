@@ -1,0 +1,28 @@
+.test {
+
+    &__header {
+        margin: 0 auto;
+        margin-bottom: 2.5rem;
+    }
+
+    &__selections {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        column-gap: 2.5rem;
+        margin-top: 2.5rem;
+    }
+
+    &__options {
+        display: flex;
+        column-gap: 1rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    &__button {
+        display: flex;
+        max-width: 8rem;
+        justify-content: center;
+    }
+}
