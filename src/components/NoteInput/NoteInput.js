@@ -15,6 +15,23 @@ const NoteInput = ({current, chord, getNote}) => {
         setReceivedNote(current);
     },[current])
 
+
+    //listener for 'Enter' keypress which will submit the form
+    useEffect(() => {
+        function handleKeyPress(e) {
+            if (e.key === "Enter") {
+                event.preventDefault();
+                handleSubmit(e);
+            }
+        }
+
+        document.addEventListener("keypress", handleKeyPress);
+
+        return () => {
+            document.removeEventListener("keypress", handleKeyPress);
+        }
+    }, [handleSubmit]);
+
     return (
         <form className = "note-form" onSubmit = {(e) => {handleSubmit(e)}}>
             <input className = "note-form__input" value = {`${receivedNote} ${chord}`}/>

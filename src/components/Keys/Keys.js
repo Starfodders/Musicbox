@@ -19,13 +19,14 @@ const Keys = ({changeNote}) => {
         changeNote(e.target.value)
     }
 
+
+    //if keypress occurs and it matches a CURRENT useRef (false if doesn't exist), will fire click()
     useEffect(() => {
         function handleKeyDown(e) {
             const key = e.key.toUpperCase();
             if (keyRefs[key] && keyRefs[key].current) {
                 keyRefs[key].current.click();
             }
-
         }
         window.addEventListener('keydown', handleKeyDown);
         return () => {
