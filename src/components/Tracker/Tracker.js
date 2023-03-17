@@ -13,18 +13,20 @@ const Tracker = ({ note }) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!songName.length > 0 || !yourName.length > 0) {
+    if (!songName.length > 0 || !yourName.length > 0 || !noteArray.length > 0) {
         return
     } else {
         axios.post('http://localhost:8080/saved', {
             songName,
-            yourName
+            yourName,
+            songFile: [...noteArray]
         })
         .then(() => {
             setIsSubmitted(true)
         })
         setSongName('')
         setYourName('')
+        setNoteArray([])
         setTimeout(() => {
             setIsSubmitted(false)
         }, 2000)

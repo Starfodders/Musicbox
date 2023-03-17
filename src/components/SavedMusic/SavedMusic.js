@@ -30,7 +30,7 @@ const SavedMusic = () => {
                 <p className = "saved__block--text"><span className = "saved-labels">Created at:</span> {song.timestamp}</p>
               </div>
               <div className="saved__block--center">
-                <p>{song.songFile}</p>
+                {song.songFile.map((note) => <p className = "note-element">{note}</p>)}
               </div>
               <div className="saved__block--right">
                 <button className = "saved__block--button">Play</button>
