@@ -4,6 +4,9 @@ import NoteInput from "../NoteInput/NoteInput";
 import Chords from "../Chords/Chords";
 import Tracker from "../Tracker/Tracker";
 import { useState, useEffect } from "react";
+import * as Tone from "tone";
+import Button from "../Button/Button";
+import '../TestPage/test.scss'
 
 import "./HomePage.scss";
 import cat from "../../assets/images/catVibe.gif"
@@ -25,6 +28,7 @@ const HomePage = () => {
   function getFullNote(note) {
     setFullNote(note)
   }
+
 
   return (
     <div className="home">

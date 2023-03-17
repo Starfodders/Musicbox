@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import * as Tone from "tone";
 import Button from "../Button/Button";
+import '../Chords/Chords.scss';
+import './test.scss';
 
 const SequencerExample = () => {
 
@@ -76,7 +78,7 @@ const SequencerExample = () => {
 
 
     //activeChordArray
-    const [activeChords, setActiveChords] = useState([chords[24]]);
+    const [activeChords, setActiveChords] = useState([]);
     const [chordToAdd, setChordToAdd] = useState({});
 
     const addChordClickHandler = (note) => {
@@ -240,7 +242,7 @@ const SequencerExample = () => {
         }))}
     </div>
     <div className="test">
-        <button onClick={handleToggleSequencer}>{startStopButton}</button>
+        <button className="chords__button" onClick={handleToggleSequencer}>{startStopButton}</button>
         <button onClick={() => {changeSounds(chords[22], bassPatterns[2])}}>{notes[2]+chordQuality[2]}</button>
         <button onClick={() => {changeSounds(chords[44], bassPatterns[4])}}>{notes[4]+chordQuality[4]}</button>
         <button onClick={() => {changeSounds(chords[92], bassPatterns[9])}}>{notes[9]+chordQuality[2]}</button>
@@ -267,17 +269,25 @@ const SequencerExample = () => {
         />
         <p>Release: {synthRelease}</p>
     </div>
-    {Object.keys(notes).map((note, i) => {
-        return (
-            <Button clickHandler={addChordClickHandler} input={note} display={notes[note]} key={i}/>
-        )
-    })}
-    {Object.keys(chordQuality).map((quality, i) => {
-        return (
-            <Button clickHandler={addChordQualityClickHandler} input={quality} display={chordQuality[quality]} key={i}/>
-        )
-    })}
-    <button onClick={addToActiveChords}>add to active chords</button>
+    <div className="test__selections">
+        <h2 className="test__header">Root Note</h2>
+        <div className="test__options">
+            {Object.keys(notes).map((note, i) => {
+                return (
+                    <Button class="test__button" clickHandler={addChordClickHandler} input={note} display={notes[note]} key={i}/>
+                )
+            })}
+        </div>
+        <h2 className="test__header">Chord Quality</h2>
+        <div className="test__options">
+            {Object.keys(chordQuality).map((quality, i) => {
+                return (
+                    <Button class="test__button" clickHandler={addChordQualityClickHandler} input={quality} display={chordQuality[quality]} key={i}/>
+                )
+            })}
+        </div>
+        <button onClick={addToActiveChords}>add to active chords</button>
+    </div>
     </>
   );
 };

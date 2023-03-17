@@ -1,8 +1,8 @@
-import './Button.scss';
+import '../Chords/Chords.scss';
 
 const Button = (props) => {
     return (
-        <div className='button' onClick={() => {props.clickHandler(props.input)}} key={props.id}>
+        <div className={`chords__button ${props.class}`}  onClick={() => {props.clickHandler(props.input)}} key={props.id}>
             {props.display}
         </div>
     )
