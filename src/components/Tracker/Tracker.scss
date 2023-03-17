@@ -33,15 +33,18 @@
     &__form {
         display: flex;
         flex-direction: column;
+        align-items: center;
 
         &--label {
             color: white;
-            padding: 10px 0 5px;
+            padding: 5px 0;
+            align-self: flex-start;
         }
 
         &--input {
             margin-bottom: 10px;
             font-size: 1.2rem;
+            border-radius: 4px;
         }
     }
 
